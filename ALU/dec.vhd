@@ -14,16 +14,16 @@ signal c,s: std_logic_vector(3 downto 0);
 begin 
 	 
 	s(0) <= a(0) xor b(0);
-	c(0) <= a(0) and (not b(0));
+	c(0) <= (not a(0)) and b(0));
 	
 	s(1) <= a(1) xor b(1) xor c(0);
-	c(1) <= (a(1) and (not b(1))) or (c(0) and (a(1) xnor b(1)));
+	c(1) <= ((not a(1)) and b(1)) or (c(0) and (a(1) xnor b(1)));
 	
 	s(2) <= a(2) xor b(2) xor c(1);
-	c(2) <= (a(2) and (not b(2))) or (c(1) and (a(2) xnor b(2)));
+	c(2) <= ((not a(2)) and b(2)) or (c(1) and (a(2) xnor b(2)));
 	 
 	s(3) <= a(3) xor b(3) xor c(2);
-	c(3) <= (a(3) and (not b(3))) or (c(2) and (a(3) xnor b(3))); 
+	c(3) <= ((not a(3)) and b(3)) or (c(2) and (a(3) xnor b(3))); 
 	
 	y <= c(3) & s;
 	 
